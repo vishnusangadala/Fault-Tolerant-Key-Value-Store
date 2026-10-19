@@ -1,0 +1,16 @@
+name: build-and-failure-tests
+on: [push, pull_request]
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        sanitize: ['OFF', 'ON']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -DSANITIZE=${{ matrix.sanitize }}
+      - run: cmake --build build -j 2
+      - run: ctest --test-dir build --output-on-failure

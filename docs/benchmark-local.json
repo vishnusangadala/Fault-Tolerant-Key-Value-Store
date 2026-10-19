@@ -1,0 +1,13 @@
+{
+  "requests": 500,
+  "clients": 4,
+  "value_bytes": 128,
+  "successes": 500,
+  "failures": 0,
+  "elapsed_seconds": 12.179097833999549,
+  "successful_ops_per_second": 41.05394396325354,
+  "p50_ms": 94.8785,
+  "p95_ms": 124.603208,
+  "p99_ms": 145.811875,
+  "max_ms": 153.112792
+}
